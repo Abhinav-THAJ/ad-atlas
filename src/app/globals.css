@@ -1,26 +1,109 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jakarta);
+  --font-heading: var(--font-playfair);
+  --font-subheading: var(--font-cormorant);
+
+  --color-brand-primary: #4B1F5E;
+  --color-brand-secondary: #6B2F8A;
+  --color-brand-accent: #D4AF37;
+  --color-brand-bg: #F7F3EE;
+  --color-brand-light: #FAF7F2;
+  --color-brand-dark: #111111;
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #F7F3EE;
+  --foreground: #111111;
+  --card: #FFFFFF;
+  --card-foreground: #111111;
+  --popover: #FFFFFF;
+  --popover-foreground: #111111;
+  --primary: #4B1F5E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #6B2F8A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #E2DDD5;
+  --muted-foreground: #6B7280;
+  --accent: #D4AF37;
+  --accent-foreground: #111111;
+  --destructive: #EF4444;
+  --border: #E2DDD5;
+  --input: #E2DDD5;
+  --ring: #4B1F5E;
+  --radius: 0rem;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #F7F3EE;
+  --card: #1A1A1A;
+  --card-foreground: #F7F3EE;
+  --popover: #1A1A1A;
+  --popover-foreground: #F7F3EE;
+  --primary: #4B1F5E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #6B2F8A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2A2A2A;
+  --muted-foreground: #9CA3AF;
+  --accent: #D4AF37;
+  --accent-foreground: #111111;
+  --destructive: #EF4444;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --ring: #4B1F5E;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-brand-primary/20 font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Custom Luxury Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F3EE;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #4B1F5E;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6B2F8A;
+  }
 }
