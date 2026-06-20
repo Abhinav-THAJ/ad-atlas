@@ -67,6 +67,7 @@ export default function WishlistPage() {
               Browse Atelier
             </Link>
           </div>
+        ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
             {wishlistItems.map((product) => (
               <div
