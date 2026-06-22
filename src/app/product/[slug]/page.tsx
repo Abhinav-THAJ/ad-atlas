@@ -297,59 +297,65 @@ export default function ProductDetailPage() {
                   )}
                 </div>
 
-                {/* Quantity and Checkout action panel */}
-                <div className="flex gap-4 mb-8">
-                  <div className="flex items-center border border-brand-primary/10 bg-white">
+                {/* Quantity and Checkout action panel — stacks on mobile */}
+                <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
+                  <div className="flex gap-3">
+                    {/* Qty selector */}
+                    <div className="flex items-center border border-brand-primary/10 bg-white flex-shrink-0">
+                      <button
+                        onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                        className="px-3 md:px-4 py-3 text-neutral-500 hover:bg-brand-light font-bold"
+                      >
+                        -
+                      </button>
+                      <span className="px-3 md:px-4 font-semibold text-sm">{quantity}</span>
+                      <button
+                        onClick={() => setQuantity((q) => q + 1)}
+                        className="px-3 md:px-4 py-3 text-neutral-500 hover:bg-brand-light font-bold"
+                      >
+                        +
+                      </button>
+                    </div>
+
+                    {/* Wishlist */}
                     <button
-                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                      className="px-4 py-3 text-neutral-500 hover:bg-brand-light font-bold"
+                      onClick={handleWishlist}
+                      className={`border border-brand-primary px-4 md:px-5 hover:bg-brand-primary hover:text-white transition-all duration-300 flex-shrink-0 ${
+                        hasWishlist ? "bg-brand-primary text-white" : "text-brand-primary"
+                      }`}
+                      aria-label="Add to wishlist"
                     >
-                      -
+                      <Heart className={`w-4 h-4 ${hasWishlist ? "fill-brand-accent stroke-brand-accent" : ""}`} />
                     </button>
-                    <span className="px-4 font-semibold text-sm">{quantity}</span>
+
+                    {/* Share */}
                     <button
-                      onClick={() => setQuantity((q) => q + 1)}
-                      className="px-4 py-3 text-neutral-500 hover:bg-brand-light font-bold"
+                      onClick={handleShare}
+                      className="border border-brand-primary/10 px-3 md:p-4 text-neutral-600 hover:border-brand-primary transition-colors flex-shrink-0 flex items-center justify-center"
+                      aria-label="Share product"
                     >
-                      +
+                      <Share2 className="w-4 h-4" />
                     </button>
                   </div>
 
+                  {/* Add to cart — full width */}
                   <button
                     onClick={handleAddToCart}
                     className="flex-grow bg-brand-primary hover:bg-brand-secondary text-white py-4 text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2"
                   >
                     <ShoppingBag className="w-4 h-4" /> Add to Cart
                   </button>
-
-                  <button
-                    onClick={handleWishlist}
-                    className={`border border-brand-primary px-5 hover:bg-brand-primary hover:text-white transition-all duration-300 ${
-                      hasWishlist ? "bg-brand-primary text-white" : "text-brand-primary"
-                    }`}
-                    aria-label="Add to wishlist"
-                  >
-                    <Heart className={`w-4 h-4 ${hasWishlist ? "fill-brand-accent stroke-brand-accent" : ""}`} />
-                  </button>
-
-                  <button
-                    onClick={handleShare}
-                    className="border border-brand-primary/10 p-4 text-neutral-600 hover:border-brand-primary transition-colors"
-                    aria-label="Share product"
-                  >
-                    <Share2 className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
 
               {/* Safety Badges certificates */}
-              <div className="flex items-center gap-6 border-t border-brand-primary/5 pt-6 text-[10px] uppercase tracking-wider text-neutral-500">
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 border-t border-brand-primary/5 pt-5 md:pt-6 text-[10px] uppercase tracking-wider text-neutral-500">
                 <span className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-brand-accent" />
+                  <ShieldCheck className="w-4 h-4 text-brand-accent flex-shrink-0" />
                   100% Secure Payments
                 </span>
                 <span className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-brand-accent" />
+                  <Award className="w-4 h-4 text-brand-accent flex-shrink-0" />
                   Certified Authentic
                 </span>
               </div>
@@ -357,13 +363,14 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Product Tabs information section */}
-          <div className="mt-24">
-            <div className="flex justify-center border-b border-brand-primary/10 pb-4 gap-6 md:gap-12">
+          <div className="mt-16 md:mt-24">
+            {/* Horizontally scrollable tabs on mobile */}
+            <div className="flex border-b border-brand-primary/10 pb-0 gap-0 overflow-x-auto scrollbar-none">
               {(["desc", "ingredients", "benefits", "how"] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`text-[10px] font-bold uppercase tracking-[0.25em] pb-3 transition-colors relative cursor-pointer ${
+                  className={`text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.25em] pb-3 px-3 md:px-6 transition-colors relative cursor-pointer whitespace-nowrap flex-shrink-0 ${
                     activeTab === tab ? "text-brand-primary font-black" : "text-neutral-400 hover:text-brand-primary"
                   }`}
                 >

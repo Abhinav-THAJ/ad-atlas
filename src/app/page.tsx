@@ -96,7 +96,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
-            className="text-sm md:text-lg text-neutral-200/90 font-light font-subheading max-w-xl leading-relaxed tracking-wider mb-12 uppercase"
+            className="text-xs md:text-base text-neutral-200/90 font-light font-subheading max-w-xl leading-relaxed tracking-wider mb-10 md:mb-12 uppercase"
           >
             Premium beauty products crafted with science-backed formulations designed for modern beauty.
           </motion.p>
@@ -263,8 +263,8 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Navigation tabs */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12 border-b border-brand-primary/10 pb-4">
+          {/* Navigation tabs — scrollable on mobile */}
+          <div className="flex overflow-x-auto scrollbar-none gap-4 md:gap-8 mb-10 md:mb-12 border-b border-brand-primary/10">
             {(["story", "demo", "testimonials", "launch"] as const).map((tab) => (
               <button
                 key={tab}
@@ -272,7 +272,7 @@ export default function Home() {
                   setVideoTab(tab);
                   setPlayingVideo(null);
                 }}
-                className={`text-[10px] font-bold uppercase tracking-[0.25em] pb-3 transition-colors relative cursor-pointer ${
+                className={`text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.25em] pb-3 transition-colors relative cursor-pointer whitespace-nowrap flex-shrink-0 ${
                   videoTab === tab ? "text-brand-primary font-black" : "text-neutral-400 hover:text-brand-primary"
                 }`}
               >
@@ -407,7 +407,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4">
             {instagramPosts.map((post) => (
               <a
                 key={post.id}
@@ -444,7 +444,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
             {COMING_SOON_PRODUCTS.map((product) => (
               <ComingSoonCard key={product.id} product={product} />
             ))}

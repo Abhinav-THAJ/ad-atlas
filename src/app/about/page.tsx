@@ -70,26 +70,26 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-heading text-[#faf7f2] font-semibold mb-16">
             Our Brand Pillars
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
             <div className="flex flex-col items-center">
-              <Sparkles className="w-8 h-8 text-brand-accent mb-4" />
-              <h3 className="font-heading text-xl mb-2">Uncompromised Luxury</h3>
-              <p className="text-[11px] text-neutral-300 max-w-[200px]">Premium packaging, rich textures, and elegant finishes.</p>
+              <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-brand-accent mb-3 md:mb-4" />
+              <h3 className="font-heading text-base md:text-xl mb-2">Uncompromised Luxury</h3>
+              <p className="text-[10px] md:text-[11px] text-neutral-300 max-w-[200px] text-center">Premium packaging, rich textures, and elegant finishes.</p>
             </div>
             <div className="flex flex-col items-center">
-              <Award className="w-8 h-8 text-brand-accent mb-4" />
-              <h3 className="font-heading text-xl mb-2">Science Driven</h3>
-              <p className="text-[11px] text-neutral-300 max-w-[200px]">Clinically validated actives that protect and treat skin cells.</p>
+              <Award className="w-6 h-6 md:w-8 md:h-8 text-brand-accent mb-3 md:mb-4" />
+              <h3 className="font-heading text-base md:text-xl mb-2">Science Driven</h3>
+              <p className="text-[10px] md:text-[11px] text-neutral-300 max-w-[200px] text-center">Clinically validated actives that protect and treat skin cells.</p>
             </div>
             <div className="flex flex-col items-center">
-              <Leaf className="w-8 h-8 text-brand-accent mb-4" />
-              <h3 className="font-heading text-xl mb-2">Cruelty Free</h3>
-              <p className="text-[11px] text-neutral-300 max-w-[200px]">Strictly vegan and cruelty-free sourcing methods.</p>
+              <Leaf className="w-6 h-6 md:w-8 md:h-8 text-brand-accent mb-3 md:mb-4" />
+              <h3 className="font-heading text-base md:text-xl mb-2">Cruelty Free</h3>
+              <p className="text-[10px] md:text-[11px] text-neutral-300 max-w-[200px] text-center">Strictly vegan and cruelty-free sourcing methods.</p>
             </div>
             <div className="flex flex-col items-center">
-              <ShieldAlert className="w-8 h-8 text-brand-accent mb-4" />
-              <h3 className="font-heading text-xl mb-2">Dermatologically Safe</h3>
-              <p className="text-[11px] text-neutral-300 max-w-[200px]">Every formula undergoes intensive allergy patch-tests.</p>
+              <ShieldAlert className="w-6 h-6 md:w-8 md:h-8 text-brand-accent mb-3 md:mb-4" />
+              <h3 className="font-heading text-base md:text-xl mb-2">Dermatologically Safe</h3>
+              <p className="text-[10px] md:text-[11px] text-neutral-300 max-w-[200px] text-center">Every formula undergoes intensive allergy patch-tests.</p>
             </div>
           </div>
         </div>
