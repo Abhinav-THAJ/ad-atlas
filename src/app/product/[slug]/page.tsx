@@ -38,12 +38,16 @@ export default function ProductDetailPage() {
 
   const addItem = useCartStore((state) => state.addItem);
   const toggleWishlist = useWishlistStore((state) => state.toggleItem);
-  const hasWishlist = useWishlistStore((state) => (product ? state.hasItem(product.id) : false));
+  // Pull items array so we don't reference `product` before it is assigned
+  const wishlistItems = useWishlistStore((state) => state.items);
 
   // Find target product
   const product = useMemo(() => {
     return products.find((p) => p.slug === slug);
   }, [slug]);
+
+  // Derive wishlist membership AFTER product is resolved
+  const hasWishlist = product ? wishlistItems.some((p) => p.id === product.id) : false;
 
   // Load reviews matching this product
   const productReviews = useMemo(() => {
