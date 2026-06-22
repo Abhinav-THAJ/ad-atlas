@@ -55,6 +55,33 @@ export function ReviewCard({ review }: ReviewCardProps) {
         <p className="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans mb-6">
           {review.content}
         </p>
+
+        {/* Media Support for Photos & Videos */}
+        {(review.images || review.video) && (
+          <div className="flex gap-2 mb-6 overflow-x-auto scrollbar-none pb-2">
+            {review.video && (
+              <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 border border-brand-primary/10 group cursor-pointer overflow-hidden">
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10 group-hover:bg-black/20 transition-colors">
+                  <div className="w-6 h-6 rounded-full bg-white/80 flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-0 h-0 border-t-4 border-t-transparent border-l-6 border-l-brand-primary border-b-4 border-b-transparent ml-0.5" />
+                  </div>
+                </div>
+                {/* Fallback to first image as poster, else brand primary */}
+                <img
+                  src={review.images?.[0] || "/images/brand-editorial.png"}
+                  alt="Review video thumbnail"
+                  className="w-full h-full object-cover grayscale opacity-80"
+                />
+              </div>
+            )}
+            
+            {review.images?.map((img, idx) => (
+              <div key={idx} className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 border border-brand-primary/10 overflow-hidden cursor-pointer">
+                <img src={img} alt={`Customer photo ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex items-center justify-between border-t border-brand-primary/5 pt-4">

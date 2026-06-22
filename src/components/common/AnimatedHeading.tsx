@@ -49,16 +49,16 @@ export function AnimatedHeading({
   };
 
   return (
-    <Tag className={cn("overflow-hidden flex flex-wrap gap-x-[0.25em]", className)}>
+    <Tag className={cn("overflow-hidden", className)}>
       <motion.span
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-10%" }}
-        className="inline-flex flex-wrap"
+        className="inline-block w-full"
       >
         {words.map((word, index) => (
-          <span key={index} className="overflow-hidden inline-block py-[0.1em] -my-[0.1em]">
+          <span key={index} className="overflow-hidden inline-block py-[0.1em] -my-[0.1em] mr-[0.25em] last:mr-0">
             <motion.span variants={wordVariants} className="inline-block">
               {word}
             </motion.span>

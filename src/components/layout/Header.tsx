@@ -146,7 +146,7 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/40 z-50 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 bg-black/40 z-[60] backdrop-blur-sm md:hidden"
           >
             <motion.div
               initial={{ x: "-100%" }}
@@ -215,7 +215,7 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/40 z-50 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/40 z-[60] backdrop-blur-sm"
           >
             <div className="absolute inset-0" onClick={() => setIsCartOpen(false)} />
             <motion.div
@@ -347,7 +347,7 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 z-50 backdrop-blur-md flex flex-col justify-start"
+            className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-md flex flex-col justify-start"
           >
             <div className="absolute inset-0" onClick={() => setIsSearchOpen(false)} />
             <motion.div

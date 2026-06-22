@@ -9,6 +9,8 @@ import { OfferBar } from "@/components/common/OfferBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/common/LoadingScreen";
+import { WhatsAppWidget } from "@/components/common/WhatsAppWidget";
+import { OfferPopup } from "@/components/common/OfferPopup";
 import "@/app/globals.css";
 
 const inter = Inter({
@@ -83,6 +85,10 @@ export default function RootLayout({
 
         {/* Complete Corporate Footer */}
         <Footer />
+
+        {/* Global Floating Components */}
+        <WhatsAppWidget />
+        <OfferPopup />
       </body>
     </html>
   );

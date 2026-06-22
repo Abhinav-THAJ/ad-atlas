@@ -126,6 +126,8 @@ export const reviews = [
     isVerified: true,
     createdAt: "2024-03-15",
     helpful: 34,
+    images: ["/images/matte-lipstick.png", "/images/liquid-lipstick.png"],
+    video: "https://example.com/video.mp4",
   },
   {
     id: "rev-002",
@@ -139,6 +141,7 @@ export const reviews = [
     isVerified: true,
     createdAt: "2024-03-20",
     helpful: 28,
+    images: ["/images/hero-campaign.png"],
   },
   {
     id: "rev-003",
