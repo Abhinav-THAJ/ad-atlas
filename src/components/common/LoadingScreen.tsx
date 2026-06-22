@@ -21,7 +21,7 @@ export function LoadingScreen() {
     const timer = setTimeout(() => {
       setShow(false);
       sessionStorage.setItem("ad-atlas-loaded", "true");
-    }, 2800);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
